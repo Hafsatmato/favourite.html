@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Favorites</title>
+</head>
+<style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links a.fav {
+      color: crimson;
+      font-weight: bold;
+    }
+
+    .header-heart {
+      color: white;
+      font-size: 80px;
+    }
+    .broken-heart{
+      font-size: 70px;
+      
+    }
+
+    .broken-heart-div{
+      border-radius: 50%;
+      background-color: rgb(252, 201, 201);
+    }
+
+    .top {
+      background-color: #a32727;
+      color: #fff;
+      padding: 50px 50px 50px;
+      text-align: center;
+    }
+
+    .top img{
+      background-color: crimson;
+    }
+   
+    .top h1 {
+      font-size: 60px;
+      margin: 10px 0 5px;
+    }
+
+    .top p {
+      font-size: 20px;
+    }
+
+    .favorites-body {
+      padding: 40px 30px;
+    }
+
+    .wishlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .wishlist-header h2 {
+      font-size: 30px;
+    }
+
+    .wishlist-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tag {
+      background-color: #f1f1f1;
+      color: rgb(39, 36, 36);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 15px;
+    }
+
+    .clear-btn {
+      background-color: rgb(255, 194, 206);
+      color: crimson;
+      border: none;
+      padding: 7px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+   
+    .empty-state h3 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .empty-state p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .browse-btn {
+      padding: 10px 10px;
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .recommendation {
+      background-color: #fff;
+      padding: 40px 30px;
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+    }
+
+    .recommendation h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 30px;
+    }
+
+    .features {
+      display: flex;
+      gap: 140px;
+      text-align: center;
+    }
+
+    .features div i {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .features div h4 {
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .features div p {
+      color: #777;
+      font-size: 15px;
+    }
+
+    .icon1{
+      border-radius: 50%;
+      background-color: rgb(255, 180, 180);
+      height: auto;
+      width: max-content;
+      margin-left: 80px;
+      font-size: 30px;
+    }
+
+        .icon2{
+      border-radius: 50%;
+      background-color: rgb(180, 200, 255);
+      height: auto;
+      width: max-content;
+      margin-left: 80px;
+      font-size: 30px;
+    }
+
+        .icon3{
+      border-radius: 50%;
+      background-color: rgb(231, 250, 218);
+      height: auto;
+      width: max-content;
+      margin-left: 80px;
+      font-size: 30px;
+    }
+
+        .icon4{
+      border-radius: 50%;
+      background-color: rgb(245, 206, 250);
+      height: auto;
+      width: max-content;
+      margin-left: 80px;
+      font-size: 30px;
+    }
+</style>
+<body>
+  <header>
+    <div class="logo">Luxe Store</div>
+    <nav class="nav-links">
+      <a href="products.html">Products</a>
+      <a href="categories.html">Categories</a>
+      <a href="favorites.html"> ❤️ Favorites</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <section class="top">
+    <div class="header-heart"> 🤍</div>
+    <h1>Your Favorites</h1>
+    <p>All the products you love, saved in one place</p>
+  </section>
+
+  <section class="favorites-body">
+    <div class="wishlist-header">
+      <h2>Wishlist Items</h2>
+      <div class="wishlist-controls">
+        <span class="tag"> ❤️ Saved for Later</span>
+        <button class="clear-btn"> 🗑️ Clear All</button>
+      </div>
+    </div>
+
+    <div class="empty-state">
+      <div class="broken-heart-div">
+      <div class="broken-heart">💔</div>
+      </div>
+      <h3>No favorites yet</h3>
+      <p>Start adding products to your favorites by clicking the heart icon on any product</p>
+      <button class="browse-btn"> 🔒 Browse Products</button>
+    </div>
+  </section>
+
+  <section class="recommendation">
+    <h3>You Might Also Love</h3>
+    <div class="features">
+      <div>
+        <div class="icon1">❤️</div>
+        <h4>Save for Later</h4>
+        <p>Keep track of items you love</p>
+      </div>
+      <div>
+        <div class="icon2">🔔</div>
+        <h4>Price Alerts</h4>
+        <p>Get notified when prices drop</p>
+      </div>
+      <div>
+        <div class="icon3">🔗</div>
+        <h4>Share Lists</h4>
+        <p>Share your wishlist with friends</p>
+      </div> 
+      <div>
+        <div class="icon4"> ✏️</div>
+        <h4>Smart Suggestions</h4>
+        <p>Discover similar products</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
