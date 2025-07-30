@@ -1,292 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Favorites</title>
-</head>
-<style>
-  
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Favorites</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pulse-ring { animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+        @keyframes pulse-ring { 0% { transform: scale(0.33); } 40%, 50% { opacity: 0; } 100% { opacity: 0; transform: scale(1.33); } }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    </style>
+  </head>
+    <!-- <body>
+    <header class="flex ">
+      <div class="logo">Luxe Store</div>
+      <nav class="nav-links">
+        <a href="products.html">Products</a>
+        <a href="categories.html">Categories</a>
+        <a href="favorites.html"> ❤️ Favorites</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </header>
 
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
+    <section class="top">
+      <div class="header-heart">🤍</div>
+      <h1>Your Favorites</h1>
+      <p>All the products you love, saved in one place</p>
+    </section>
 
-    header {
-      background-color: #fff;
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
+    <section class="favorites-body">
+      <div class="wishlist-header">
+        <h2>Wishlist Items</h2>
+        <div class="wishlist-controls">
+          <span class="tag"> ❤️ Saved for Later</span>
+          <button class="clear-btn">🗑️ Clear All</button>
+        </div>
+      </div>
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
+      <div class="empty-state">
+        <div class="broken-heart-div">
+          <div class="broken-heart">💔</div>
+        </div>
+        <h3>No favorites yet</h3>
+        <p>
+          Start adding products to your favorites by clicking the heart icon on
+          any product
+        </p>
+        <button class="browse-btn">🔒 Browse Products</button>
+      </div>
+    </section>
 
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .nav-links a.fav {
-      color: crimson;
-      font-weight: bold;
-    }
-
-    .header-heart {
-      color: white;
-      font-size: 80px;
-    }
-    .broken-heart{
-      font-size: 70px;
-      
-    }
-
-    .broken-heart-div{
-      border-radius: 50%;
-      background-color: rgb(252, 201, 201);
-    }
-
-    .top {
-      background-color: #a32727;
-      color: #fff;
-      padding: 50px 50px 50px;
-      text-align: center;
-    }
-
-    .top img{
-      background-color: crimson;
-    }
-   
-    .top h1 {
-      font-size: 60px;
-      margin: 10px 0 5px;
-    }
-
-    .top p {
-      font-size: 20px;
-    }
-
-    .favorites-body {
-      padding: 40px 30px;
-    }
-
-    .wishlist-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .wishlist-header h2 {
-      font-size: 30px;
-    }
-
-    .wishlist-controls {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .tag {
-      background-color: #f1f1f1;
-      color: rgb(39, 36, 36);
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 15px;
-    }
-
-    .clear-btn {
-      background-color: rgb(255, 194, 206);
-      color: crimson;
-      border: none;
-      padding: 7px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 50px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-   
-    .empty-state h3 {
-      font-size: 40px;
-      margin-bottom: 10px;
-      margin-top: 30px;
-    }
-
-    .empty-state p {
-      margin-bottom: 20px;
-      color: #666;
-    }
-
-    .browse-btn {
-      padding: 10px 10px;
-      background-color: #e91e63;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .recommendation {
-      background-color: #fff;
-      padding: 40px 30px;
-      margin-top: 40px;
-      border-top: 1px solid #eee;
-    }
-
-    .recommendation h3 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 30px;
-    }
-
-    .features {
-      display: flex;
-      gap: 140px;
-      text-align: center;
-    }
-
-    .features div i {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .features div h4 {
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    .features div p {
-      color: #777;
-      font-size: 15px;
-    }
-
-    .icon1{
-      border-radius: 50%;
-      background-color: rgb(255, 180, 180);
-      height: auto;
-      width: max-content;
-      margin-left: 80px;
-      font-size: 30px;
-    }
-
-        .icon2{
-      border-radius: 50%;
-      background-color: rgb(180, 200, 255);
-      height: auto;
-      width: max-content;
-      margin-left: 80px;
-      font-size: 30px;
-    }
-
-        .icon3{
-      border-radius: 50%;
-      background-color: rgb(231, 250, 218);
-      height: auto;
-      width: max-content;
-      margin-left: 80px;
-      font-size: 30px;
-    }
-
-        .icon4{
-      border-radius: 50%;
-      background-color: rgb(245, 206, 250);
-      height: auto;
-      width: max-content;
-      margin-left: 80px;
-      font-size: 30px;
-    }
-</style>
-<body>
-  <header>
-    <div class="logo">Luxe Store</div>
-    <nav class="nav-links">
-      <a href="products.html">Products</a>
-      <a href="categories.html">Categories</a>
-      <a href="favorites.html"> ❤️ Favorites</a>
-      <a href="cart.html">Cart</a>
+    <section class="recommendation">
+      <h3>You Might Also Love</h3>
+      <div class="features">
+        <div>
+          <div class="icon1">❤️</div>
+          <h4>Save for Later</h4>
+          <p>Keep track of items you love</p>
+        </div>
+        <div>
+          <div class="icon2">🔔</div>
+          <h4>Price Alerts</h4>
+          <p>Get notified when prices drop</p>
+        </div>
+        <div>
+          <div class="icon3">🔗</div>
+          <h4>Share Lists</h4>
+          <p>Share your wishlist with friends</p>
+        </div>
+        <div>
+          <div class="icon4">✏️</div>
+          <h4>Smart Suggestions</h4>
+          <p>Discover similar products</p>
+        </div>
+      </div>
+    </section> -->
+    <body class="bg-gray-50">
+    <!-- Premium Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
+                        <i class="fas fa-gem text-white text-lg"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Luxe Store
+                    </h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Products</a>
+                    <a href="categories.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">Categories</a>
+                    <a href="favorites.html" class="relative text-red-600 font-medium">
+                        <i class="fas fa-heart mr-1"></i> Favorites
+                        <span id="favCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="cart.html" class="relative text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                        <i class="fas fa-shopping-bag mr-1"></i> Cart
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-purple-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center pulse-ring">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="top">
-    <div class="header-heart"> 🤍</div>
-    <h1>Your Favorites</h1>
-    <p>All the products you love, saved in one place</p>
-  </section>
-
-  <section class="favorites-body">
-    <div class="wishlist-header">
-      <h2>Wishlist Items</h2>
-      <div class="wishlist-controls">
-        <span class="tag"> ❤️ Saved for Later</span>
-        <button class="clear-btn"> 🗑️ Clear All</button>
-      </div>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-red-500 to-pink-600 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="container mx-auto px-6 relative">
+            <div class="text-center">
+                <div class="floating mb-6">
+                    <i class="fas fa-heart text-6xl text-white/90"></i>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">
+                    
+                    Your Favorites
+                </h2>
+                <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                    All the products you love, saved in one place
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="empty-state">
-      <div class="broken-heart-div">
-      <div class="broken-heart">💔</div>
-      </div>
-      <h3>No favorites yet</h3>
-      <p>Start adding products to your favorites by clicking the heart icon on any product</p>
-      <button class="browse-btn"> 🔒 Browse Products</button>
-    </div>
-  </section>
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-800">Wishlist Items</h2>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                    <i class="fas fa-heart text-red-500"></i>
+                    <span class="font-medium">Saved for Later</span>
+                </div>
+                <button onclick="clearAllFavorites()" class="bg-red-100 text-red-600 px-4 py-2 rounded-xl hover:bg-red-200 transition-colors font-medium">
+                    <i class="fas fa-trash mr-2"></i>Clear All
+                </button>
+            </div>
+        </div>
+        
+        <!-- Empty Favorites Message -->
+        <div id="emptyFavorites" class="text-center py-20 hidden">
+            <div class="w-32 h-32 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                <i class="fas fa-heart-broken text-red-400 text-6xl"></i>
+            </div>
+            <h3 class="text-3xl font-bold text-gray-800 mb-4">No favorites yet</h3>
+            <p class="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+                Start adding products to your favorites by clicking the heart icon on any product
+            </p>
+            <a href="index.html" class="bg-gradient-to-r from-red-500 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-red-600 hover:to-pink-700 transform hover:scale-105 transition-all duration-200 shadow-lg inline-block">
+                <i class="fas fa-shopping-bag mr-2"></i>Browse Products
+            </a>
+        </div>
 
-  <section class="recommendation">
-    <h3>You Might Also Love</h3>
-    <div class="features">
-      <div>
-        <div class="icon1">❤️</div>
-        <h4>Save for Later</h4>
-        <p>Keep track of items you love</p>
-      </div>
-      <div>
-        <div class="icon2">🔔</div>
-        <h4>Price Alerts</h4>
-        <p>Get notified when prices drop</p>
-      </div>
-      <div>
-        <div class="icon3">🔗</div>
-        <h4>Share Lists</h4>
-        <p>Share your wishlist with friends</p>
-      </div> 
-      <div>
-        <div class="icon4"> ✏️</div>
-        <h4>Smart Suggestions</h4>
-        <p>Discover similar products</p>
-      </div>
+        <!-- Favorites Grid -->
+        <div id="favoritesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Favorite products will be loaded here -->
+        </div>
+
+        <!-- Favorites Actions -->
+        <div id="favoritesActions" class="mt-12 text-center hidden">
+            <div class="bg-white p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Love these items?</h3>
+                <p class="text-gray-600 mb-6">Add them all to your cart and get free shipping!</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="addAllToCart()" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                        <i class="fas fa-cart-plus mr-2"></i>Add All to Cart
+                    </button>
+                    <button onclick="shareWishlist()" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-share mr-2"></i>Share Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-</body>
+
+    <!-- Recommendations Section -->
+    <div class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">You Might Also Love</h3>
+                <p class="text-gray-600 text-lg">Based on your favorites, here are some recommendations</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-red-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Save for Later</h4>
+                    <p class="text-gray-600 text-sm">Keep track of items you love</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bell text-blue-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Price Alerts</h4>
+                    <p class="text-gray-600 text-sm">Get notified when prices drop</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-share-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Share Lists</h4>
+                    <p class="text-gray-600 text-sm">Share your wishlist with friends</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-magic text-purple-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Smart Suggestions</h4>
+                    <p class="text-gray-600 text-sm">Discover similar products</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load favorites when page loads
+        window.addEventListener('load', function() {
+            loadFavorites();
+            updateCartCount();
+            updateFavCount();
+        });
+
+        // Enhanced loadFavorites function
+        function loadFavorites() {
+            const favorites = getFavorites()
+            const favoritesGrid = document.getElementById("favoritesGrid")
+            const emptyFavorites = document.getElementById("emptyFavorites")
+            const favoritesActions = document.getElementById("favoritesActions")
+
+            if (favorites.length === 0) {
+                emptyFavorites.classList.remove("hidden")
+                favoritesActions.classList.add("hidden")
+                favoritesGrid.innerHTML = ""
+                return
+            }
+
+            emptyFavorites.classList.add("hidden")
+            favoritesActions.classList.remove("hidden")
+            favoritesGrid.innerHTML = favorites.map((product) => createProductCard(product)).join("")
+        }
+
+        // Clear all favorites
+        function clearAllFavorites() {
+            if (confirm('Are you sure you want to remove all items from your favorites?')) {
+                localStorage.removeItem('favorites')
+                updateFavCount()
+                loadFavorites()
+                showNotification('💔 All favorites cleared', 'info')
+            }
+        }
+
+        // Add all favorites to cart
+        function addAllToCart() {
+            const favorites = getFavorites()
+            if (favorites.length === 0) return
+
+            const cart = getCart()
+            let addedCount = 0
+
+            favorites.forEach(product => {
+                const existingItem = cart.find(item => item.id === product.id)
+                if (existingItem) {
+                    existingItem.quantity += 1
+                } else {
+                    cart.push({
+                        id: product.id,
+                        title: product.title,
+                        price: product.price,
+                        images: product.images,
+                        quantity: 1,
+                    })
+                }
+                addedCount++
+            })
+
+            saveCart(cart)
+            updateCartCount()
+            showNotification(🛍 Added ${addedCount} items to cart!, 'success')
+        }
+
+        // Share wishlist
+        function shareWishlist() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Luxe Store Wishlist',
+                    text: 'Check out my favorite products!',
+                    url: window.location.href
+                })
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(window.location.href)
+                showNotification('🔗 Wishlist link copied to clipboard!', 'success')
+            }
+        }
+    </script>
+  </body>
 </html>
